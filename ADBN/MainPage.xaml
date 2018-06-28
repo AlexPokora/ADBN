@@ -1,0 +1,62 @@
+﻿<Page x:Class="ADBN.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ADBN"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="MainPage">
+    <Page.DataContext>
+        <local:MainWindowModel/>
+    </Page.DataContext>
+    <Grid Margin="0,0,-651,-174" >
+        <Grid Margin="0,15,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="114*" />
+                <ColumnDefinition Width="237*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Canvas Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <Rectangle  Name="bgr1" Height="100" Width="50" Margin="0,0,125,0" Fill="#7c6c6d"/>
+                <Rectangle  Name="MFR1" Height="100" Width="50" Margin="0,0,125,0" Fill="#2e313e"/>
+                <Rectangle  Name="bgr2" Height="100" Width="50"  Fill="#7c6c6d" Canvas.Left="111"/>
+                <Rectangle  Name="MFR2" Height="100" Width="50"  Fill="#2e313e" Canvas.Left="111"/>
+                <Rectangle  Name="bgr3" Height="100" Width="50" Margin="0,0,325,0" Canvas.Left="208" Fill="#7c6c6d"/>
+                <Rectangle  Name="MFR3" Height="100" Width="50" Fill="#2e313e" Canvas.Left="208"/>
+                <Ellipse Name="ElipsMain" Height="100" Width="100" HorizontalAlignment="Right" Fill="#7c6c6d" Canvas.Left="275"/>
+            </Canvas>
+
+            <TextBox VerticalAlignment="Bottom" Height="20" Grid.Column="0" Grid.Row="0" Text=""/>
+            <Border Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="2">
+                <TextBlock Text="tree" Background="Pink" Padding="70,0"/>
+            </Border>
+            <StackPanel Grid.Column="0" Grid.Row="1" Background="Aquamarine" Margin="0,20,0,0" />
+            <DataGrid x:Name="dataGrid" Grid.Column="1"  Grid.Row="1" Grid.ColumnSpan="3" ItemsSource="{Binding ListVeiw, Mode=Default, UpdateSourceTrigger=PropertyChanged}"
+                          AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Marking" Binding="{Binding marking}" Width="auto"/>
+                    <DataGridTextColumn Header="Processor" Binding="{Binding processor}" Width="auto"/>
+                    <DataGridTextColumn Header="Mother Board" Binding="{Binding motherBord}" Width="auto"/>
+                    <DataGridTextColumn Header="Ram" Binding="{Binding ram}" Width="auto"/>
+                    <DataGridTextColumn Header="Video Card" Binding="{Binding videocard}" Width="auto"/>
+                    <DataGridTextColumn Header="Disc 1" Binding="{Binding disc1}" Width="auto"/>
+                    <DataGridTextColumn Header="Disc 2" Binding="{Binding disc2}" Width="auto"/>
+                    <DataGridTextColumn Header="Disc 3" Binding="{Binding disc3}" Width="auto"/>
+                    <DataGridTextColumn Header="Disc 4" Binding="{Binding disc4}" Width="auto"/>
+                    <!--<DataGridTextColumn Header="Hull" Binding="{Binding powerSupply}"/>-->
+                    <DataGridTextColumn Header="Power Source" Binding="{Binding powerSupply}" Width="auto"/>
+                    <DataGridTextColumn Header="Existens Count" Binding="{Binding existence}" Width="auto"/>
+                    <DataGridTextColumn Header="Reservet Count" Binding="{Binding reservet}" Width="auto"/>
+                    <DataGridTextColumn Header="Cost" Binding="{Binding cost}" Width="auto"/>
+                    <!--<DataGridTextColumn Header="Note" Binding="{Binding marking}"/>-->
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <!--Это грид робочего пространства-->
+    </Grid>
+</Page>

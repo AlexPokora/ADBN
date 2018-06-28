@@ -1,0 +1,1168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PositionsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Disc">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="value" Type="int" />
+          <Property Name="manufacturer" Type="varchar(max)" />
+          <Property Name="SSD" Type="varchar(max)" />
+          <Property Name="cost" Type="int" />
+        </EntityType>
+        <EntityType Name="Hulls">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Manafacture" Type="nchar" MaxLength="10" />
+          <Property Name="hullType" Type="nchar" MaxLength="10" />
+          <Property Name="hullModel" Type="nchar" MaxLength="10" />
+          <Property Name="cost" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="MarkerTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Allowable" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="MemoryGeneration">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Generation" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="MotherBord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar(max)" />
+          <Property Name="northBridge" Type="nvarchar(max)" />
+          <Property Name="chipSet" Type="nvarchar(max)" />
+          <Property Name="SoketId" Type="int" Nullable="false" />
+          <Property Name="Allowable_generationID" Type="int" />
+          <Property Name="RAM_MarkingAllowable" Type="int" />
+        </EntityType>
+        <EntityType Name="NoteBook">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="processor_ID" Type="int" />
+          <Property Name="motherBord_ID" Type="int" />
+          <Property Name="RAM_ID" Type="int" />
+          <Property Name="videoCard_ID" Type="int" />
+          <Property Name="disc1_ID" Type="int" />
+          <Property Name="disc2_ID" Type="int" />
+          <Property Name="Batarray" Type="int" />
+          <Property Name="existence" Type="int" />
+          <Property Name="reservet" Type="int" />
+          <Property Name="Cost" Type="int" />
+        </EntityType>
+        <EntityType Name="PC">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Marking" Type="nvarchar(max)" />
+          <Property Name="processor_ID" Type="int" />
+          <Property Name="motherBord_ID" Type="int" />
+          <Property Name="RAM_ID" Type="int" />
+          <Property Name="videoCard_ID" Type="int" />
+          <Property Name="disc1_ID" Type="int" />
+          <Property Name="disc2_ID" Type="int" />
+          <Property Name="disc3_ID" Type="int" />
+          <Property Name="disc4_ID" Type="int" />
+          <Property Name="hull_ID" Type="int" />
+          <Property Name="power_Supply_ID" Type="int" />
+          <Property Name="existence" Type="int" />
+          <Property Name="reservet" Type="int" />
+          <Property Name="cost" Type="int" />
+          <Property Name="Note" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="PowerSourse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="voltage" Type="int" />
+          <Property Name="manifacture" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Processor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="manufacturer" Type="nvarchar(max)" />
+          <Property Name="model" Type="nvarchar(max)" />
+          <Property Name="frequency" Type="int" />
+          <Property Name="cache" Type="int" />
+          <Property Name="number_of_Cores" Type="int" />
+          <Property Name="number_of_threads" Type="int" />
+          <Property Name="cost" Type="int" />
+          <Property Name="SoketId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RAM">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="manufacture" Type="nvarchar(max)" />
+          <Property Name="value" Type="int" />
+          <Property Name="frequency" Type="int" />
+          <Property Name="DDR_generationID" Type="int" />
+          <Property Name="cost" Type="int" />
+        </EntityType>
+        <EntityType Name="SoketSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VideoBord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="model" Type="nvarchar(max)" />
+          <Property Name="memory_generation" Type="nvarchar(max)" />
+          <Property Name="bits" Type="int" />
+          <Property Name="memory_" Type="int" />
+          <Property Name="C3D_API" Type="nvarchar(max)" />
+          <Property Name="cost" Type="int" />
+        </EntityType>
+        <Association Name="FK_DDRGeneration">
+          <End Role="MemoryGeneration" Type="Self.MemoryGeneration" Multiplicity="0..1" />
+          <End Role="RAM" Type="Self.RAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemoryGeneration">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RAM">
+              <PropertyRef Name="DDR_generationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ddrGenerationMotherBord">
+          <End Role="MemoryGeneration" Type="Self.MemoryGeneration" Multiplicity="0..1" />
+          <End Role="MotherBord" Type="Self.MotherBord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemoryGeneration">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MotherBord">
+              <PropertyRef Name="Allowable_generationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MarkerMotherBord">
+          <End Role="MarkerTable" Type="Self.MarkerTable" Multiplicity="0..1" />
+          <End Role="MotherBord" Type="Self.MotherBord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MarkerTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MotherBord">
+              <PropertyRef Name="RAM_MarkingAllowable" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NoteBook_ToDiscs">
+          <End Role="Disc" Type="Self.Disc" Multiplicity="0..1" />
+          <End Role="NoteBook" Type="Self.NoteBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Disc">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NoteBook">
+              <PropertyRef Name="disc1_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NoteBook_ToDiscs2">
+          <End Role="Disc" Type="Self.Disc" Multiplicity="0..1" />
+          <End Role="NoteBook" Type="Self.NoteBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Disc">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NoteBook">
+              <PropertyRef Name="disc2_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NoteBook_ToMotherBord">
+          <End Role="MotherBord" Type="Self.MotherBord" Multiplicity="0..1" />
+          <End Role="NoteBook" Type="Self.NoteBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MotherBord">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NoteBook">
+              <PropertyRef Name="motherBord_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NoteBook_ToProcessor">
+          <End Role="Processor" Type="Self.Processor" Multiplicity="0..1" />
+          <End Role="NoteBook" Type="Self.NoteBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Processor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NoteBook">
+              <PropertyRef Name="processor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NoteBook_ToRAM">
+          <End Role="RAM" Type="Self.RAM" Multiplicity="0..1" />
+          <End Role="NoteBook" Type="Self.NoteBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAM">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NoteBook">
+              <PropertyRef Name="RAM_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NoteBook_ToVideoBords">
+          <End Role="VideoBord" Type="Self.VideoBord" Multiplicity="0..1" />
+          <End Role="NoteBook" Type="Self.NoteBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VideoBord">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NoteBook">
+              <PropertyRef Name="videoCard_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PC_PowerSourse">
+          <End Role="PowerSourse" Type="Self.PowerSourse" Multiplicity="0..1" />
+          <End Role="PC" Type="Self.PC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PowerSourse">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PC">
+              <PropertyRef Name="power_Supply_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PC_ToDiscs">
+          <End Role="Disc" Type="Self.Disc" Multiplicity="0..1" />
+          <End Role="PC" Type="Self.PC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Disc">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PC">
+              <PropertyRef Name="disc1_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PC_ToDiscs2">
+          <End Role="Disc" Type="Self.Disc" Multiplicity="0..1" />
+          <End Role="PC" Type="Self.PC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Disc">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PC">
+              <PropertyRef Name="disc2_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PC_ToDiscs3">
+          <End Role="Disc" Type="Self.Disc" Multiplicity="0..1" />
+          <End Role="PC" Type="Self.PC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Disc">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PC">
+              <PropertyRef Name="disc3_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PC_ToDiscs4">
+          <End Role="Disc" Type="Self.Disc" Multiplicity="0..1" />
+          <End Role="PC" Type="Self.PC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Disc">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PC">
+              <PropertyRef Name="disc4_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PC_ToMotherBord">
+          <End Role="MotherBord" Type="Self.MotherBord" Multiplicity="0..1" />
+          <End Role="PC" Type="Self.PC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MotherBord">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PC">
+              <PropertyRef Name="motherBord_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PC_ToProcessor">
+          <End Role="Processor" Type="Self.Processor" Multiplicity="0..1" />
+          <End Role="PC" Type="Self.PC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Processor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PC">
+              <PropertyRef Name="processor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PC_ToRAMs">
+          <End Role="RAM" Type="Self.RAM" Multiplicity="0..1" />
+          <End Role="PC" Type="Self.PC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAM">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PC">
+              <PropertyRef Name="RAM_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PC_ToVideoBords">
+          <End Role="VideoBord" Type="Self.VideoBord" Multiplicity="0..1" />
+          <End Role="PC" Type="Self.PC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VideoBord">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PC">
+              <PropertyRef Name="videoCard_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SoketMotherBord">
+          <End Role="SoketSet" Type="Self.SoketSet" Multiplicity="1" />
+          <End Role="MotherBord" Type="Self.MotherBord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SoketSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MotherBord">
+              <PropertyRef Name="SoketId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SoketProcessor">
+          <End Role="SoketSet" Type="Self.SoketSet" Multiplicity="1" />
+          <End Role="Processor" Type="Self.Processor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SoketSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Processor">
+              <PropertyRef Name="SoketId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PositionsModelStoreContainer">
+          <EntitySet Name="Disc" EntityType="Self.Disc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hulls" EntityType="Self.Hulls" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MarkerTable" EntityType="Self.MarkerTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MemoryGeneration" EntityType="Self.MemoryGeneration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MotherBord" EntityType="Self.MotherBord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NoteBook" EntityType="Self.NoteBook" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PC" EntityType="Self.PC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PowerSourse" EntityType="Self.PowerSourse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Processor" EntityType="Self.Processor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RAM" EntityType="Self.RAM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SoketSet" EntityType="Self.SoketSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VideoBord" EntityType="Self.VideoBord" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DDRGeneration" Association="Self.FK_DDRGeneration">
+            <End Role="MemoryGeneration" EntitySet="MemoryGeneration" />
+            <End Role="RAM" EntitySet="RAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ddrGenerationMotherBord" Association="Self.FK_ddrGenerationMotherBord">
+            <End Role="MemoryGeneration" EntitySet="MemoryGeneration" />
+            <End Role="MotherBord" EntitySet="MotherBord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MarkerMotherBord" Association="Self.FK_MarkerMotherBord">
+            <End Role="MarkerTable" EntitySet="MarkerTable" />
+            <End Role="MotherBord" EntitySet="MotherBord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NoteBook_ToDiscs" Association="Self.FK_NoteBook_ToDiscs">
+            <End Role="Disc" EntitySet="Disc" />
+            <End Role="NoteBook" EntitySet="NoteBook" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NoteBook_ToDiscs2" Association="Self.FK_NoteBook_ToDiscs2">
+            <End Role="Disc" EntitySet="Disc" />
+            <End Role="NoteBook" EntitySet="NoteBook" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NoteBook_ToMotherBord" Association="Self.FK_NoteBook_ToMotherBord">
+            <End Role="MotherBord" EntitySet="MotherBord" />
+            <End Role="NoteBook" EntitySet="NoteBook" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NoteBook_ToProcessor" Association="Self.FK_NoteBook_ToProcessor">
+            <End Role="Processor" EntitySet="Processor" />
+            <End Role="NoteBook" EntitySet="NoteBook" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NoteBook_ToRAM" Association="Self.FK_NoteBook_ToRAM">
+            <End Role="RAM" EntitySet="RAM" />
+            <End Role="NoteBook" EntitySet="NoteBook" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NoteBook_ToVideoBords" Association="Self.FK_NoteBook_ToVideoBords">
+            <End Role="VideoBord" EntitySet="VideoBord" />
+            <End Role="NoteBook" EntitySet="NoteBook" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PC_PowerSourse" Association="Self.FK_PC_PowerSourse">
+            <End Role="PowerSourse" EntitySet="PowerSourse" />
+            <End Role="PC" EntitySet="PC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PC_ToDiscs" Association="Self.FK_PC_ToDiscs">
+            <End Role="Disc" EntitySet="Disc" />
+            <End Role="PC" EntitySet="PC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PC_ToDiscs2" Association="Self.FK_PC_ToDiscs2">
+            <End Role="Disc" EntitySet="Disc" />
+            <End Role="PC" EntitySet="PC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PC_ToDiscs3" Association="Self.FK_PC_ToDiscs3">
+            <End Role="Disc" EntitySet="Disc" />
+            <End Role="PC" EntitySet="PC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PC_ToDiscs4" Association="Self.FK_PC_ToDiscs4">
+            <End Role="Disc" EntitySet="Disc" />
+            <End Role="PC" EntitySet="PC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PC_ToMotherBord" Association="Self.FK_PC_ToMotherBord">
+            <End Role="MotherBord" EntitySet="MotherBord" />
+            <End Role="PC" EntitySet="PC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PC_ToProcessor" Association="Self.FK_PC_ToProcessor">
+            <End Role="Processor" EntitySet="Processor" />
+            <End Role="PC" EntitySet="PC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PC_ToRAMs" Association="Self.FK_PC_ToRAMs">
+            <End Role="RAM" EntitySet="RAM" />
+            <End Role="PC" EntitySet="PC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PC_ToVideoBords" Association="Self.FK_PC_ToVideoBords">
+            <End Role="VideoBord" EntitySet="VideoBord" />
+            <End Role="PC" EntitySet="PC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SoketMotherBord" Association="Self.FK_SoketMotherBord">
+            <End Role="SoketSet" EntitySet="SoketSet" />
+            <End Role="MotherBord" EntitySet="MotherBord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SoketProcessor" Association="Self.FK_SoketProcessor">
+            <End Role="SoketSet" EntitySet="SoketSet" />
+            <End Role="Processor" EntitySet="Processor" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PositionsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="PositionsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Disc" EntityType="PositionsModel.Disc" />
+          <EntitySet Name="Hulls" EntityType="PositionsModel.Hulls" />
+          <EntitySet Name="MotherBord" EntityType="PositionsModel.MotherBord" />
+          <EntitySet Name="NoteBook" EntityType="PositionsModel.NoteBook" />
+          <EntitySet Name="PC" EntityType="PositionsModel.PC" />
+          <EntitySet Name="PowerSourse" EntityType="PositionsModel.PowerSourse" />
+          <EntitySet Name="Processor" EntityType="PositionsModel.Processor" />
+          <EntitySet Name="RAM" EntityType="PositionsModel.RAM" />
+          <EntitySet Name="VideoBord" EntityType="PositionsModel.VideoBord" />
+          <AssociationSet Name="FK_NoteBook_ToDiscs" Association="PositionsModel.FK_NoteBook_ToDiscs">
+            <End Role="Disc" EntitySet="Disc" />
+            <End Role="NoteBook" EntitySet="NoteBook" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NoteBook_ToDiscs2" Association="PositionsModel.FK_NoteBook_ToDiscs2">
+            <End Role="Disc" EntitySet="Disc" />
+            <End Role="NoteBook" EntitySet="NoteBook" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PC_ToDiscs" Association="PositionsModel.FK_PC_ToDiscs">
+            <End Role="Disc" EntitySet="Disc" />
+            <End Role="PC" EntitySet="PC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PC_ToDiscs2" Association="PositionsModel.FK_PC_ToDiscs2">
+            <End Role="Disc" EntitySet="Disc" />
+            <End Role="PC" EntitySet="PC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PC_ToDiscs3" Association="PositionsModel.FK_PC_ToDiscs3">
+            <End Role="Disc" EntitySet="Disc" />
+            <End Role="PC" EntitySet="PC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PC_ToDiscs4" Association="PositionsModel.FK_PC_ToDiscs4">
+            <End Role="Disc" EntitySet="Disc" />
+            <End Role="PC" EntitySet="PC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NoteBook_ToMotherBord" Association="PositionsModel.FK_NoteBook_ToMotherBord">
+            <End Role="MotherBord" EntitySet="MotherBord" />
+            <End Role="NoteBook" EntitySet="NoteBook" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PC_ToMotherBord" Association="PositionsModel.FK_PC_ToMotherBord">
+            <End Role="MotherBord" EntitySet="MotherBord" />
+            <End Role="PC" EntitySet="PC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NoteBook_ToProcessor" Association="PositionsModel.FK_NoteBook_ToProcessor">
+            <End Role="Processor" EntitySet="Processor" />
+            <End Role="NoteBook" EntitySet="NoteBook" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NoteBook_ToRAM" Association="PositionsModel.FK_NoteBook_ToRAM">
+            <End Role="RAM" EntitySet="RAM" />
+            <End Role="NoteBook" EntitySet="NoteBook" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NoteBook_ToVideoBords" Association="PositionsModel.FK_NoteBook_ToVideoBords">
+            <End Role="VideoBord" EntitySet="VideoBord" />
+            <End Role="NoteBook" EntitySet="NoteBook" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PC_PowerSourse" Association="PositionsModel.FK_PC_PowerSourse">
+            <End Role="PowerSourse" EntitySet="PowerSourse" />
+            <End Role="PC" EntitySet="PC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PC_ToProcessor" Association="PositionsModel.FK_PC_ToProcessor">
+            <End Role="Processor" EntitySet="Processor" />
+            <End Role="PC" EntitySet="PC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PC_ToRAMs" Association="PositionsModel.FK_PC_ToRAMs">
+            <End Role="RAM" EntitySet="RAM" />
+            <End Role="PC" EntitySet="PC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PC_ToVideoBords" Association="PositionsModel.FK_PC_ToVideoBords">
+            <End Role="VideoBord" EntitySet="VideoBord" />
+            <End Role="PC" EntitySet="PC" />
+          </AssociationSet>
+          <EntitySet Name="SoketSet" EntityType="PositionsModel.Soket" />
+          <AssociationSet Name="SoketProcessor" Association="PositionsModel.SoketProcessor">
+            <End Role="Soket" EntitySet="SoketSet" />
+            <End Role="Processor" EntitySet="Processor" />
+          </AssociationSet>
+          <AssociationSet Name="SoketMotherBord" Association="PositionsModel.SoketMotherBord">
+            <End Role="Soket" EntitySet="SoketSet" />
+            <End Role="MotherBord" EntitySet="MotherBord" />
+          </AssociationSet>
+          <EntitySet Name="MarkerTable" EntityType="PositionsModel.MarkerTable" />
+          <EntitySet Name="MemoryGeneration" EntityType="PositionsModel.MemoryGeneration" />
+          <AssociationSet Name="FK_MarkerMotherBord" Association="PositionsModel.FK_MarkerMotherBord">
+            <End Role="MarkerTable" EntitySet="MarkerTable" />
+            <End Role="MotherBord" EntitySet="MotherBord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DDRGeneration" Association="PositionsModel.FK_DDRGeneration">
+            <End Role="MemoryGeneration" EntitySet="MemoryGeneration" />
+            <End Role="RAM" EntitySet="RAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ddrGenerationMotherBord" Association="PositionsModel.FK_ddrGenerationMotherBord">
+            <End Role="MemoryGeneration" EntitySet="MemoryGeneration" />
+            <End Role="MotherBord" EntitySet="MotherBord" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Disc">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="value" Type="Int32" />
+          <Property Name="manufacturer" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SSD" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="cost" Type="Int32" />
+          <NavigationProperty Name="NoteBook" Relationship="PositionsModel.FK_NoteBook_ToDiscs" FromRole="Disc" ToRole="NoteBook" />
+          <NavigationProperty Name="NoteBook1" Relationship="PositionsModel.FK_NoteBook_ToDiscs2" FromRole="Disc" ToRole="NoteBook" />
+          <NavigationProperty Name="PC" Relationship="PositionsModel.FK_PC_ToDiscs" FromRole="Disc" ToRole="PC" />
+          <NavigationProperty Name="PC1" Relationship="PositionsModel.FK_PC_ToDiscs2" FromRole="Disc" ToRole="PC" />
+          <NavigationProperty Name="PC2" Relationship="PositionsModel.FK_PC_ToDiscs3" FromRole="Disc" ToRole="PC" />
+          <NavigationProperty Name="PC3" Relationship="PositionsModel.FK_PC_ToDiscs4" FromRole="Disc" ToRole="PC" />
+        </EntityType>
+        <EntityType Name="Hulls">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Manafacture" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="hullType" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="hullModel" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="cost" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MotherBord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="northBridge" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="chipSet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="NoteBook" Relationship="PositionsModel.FK_NoteBook_ToMotherBord" FromRole="MotherBord" ToRole="NoteBook" />
+          <NavigationProperty Name="PC" Relationship="PositionsModel.FK_PC_ToMotherBord" FromRole="MotherBord" ToRole="PC" />
+          <NavigationProperty Name="Soket" Relationship="PositionsModel.SoketMotherBord" FromRole="MotherBord" ToRole="Soket" />
+          <Property Name="SoketId" Type="Int32" Nullable="false" />
+          <Property Name="Allowable_generationID" Type="Int32" />
+          <Property Name="RAM_MarkingAllowable" Type="Int32" />
+          <NavigationProperty Name="MarkerTable" Relationship="PositionsModel.FK_MarkerMotherBord" FromRole="MotherBord" ToRole="MarkerTable" />
+          <NavigationProperty Name="MemoryGeneration" Relationship="PositionsModel.FK_ddrGenerationMotherBord" FromRole="MotherBord" ToRole="MemoryGeneration" />
+        </EntityType>
+        <EntityType Name="NoteBook">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="processor_ID" Type="Int32" />
+          <Property Name="motherBord_ID" Type="Int32" />
+          <Property Name="RAM_ID" Type="Int32" />
+          <Property Name="videoCard_ID" Type="Int32" />
+          <Property Name="disc1_ID" Type="Int32" />
+          <Property Name="disc2_ID" Type="Int32" />
+          <Property Name="Batarray" Type="Int32" />
+          <Property Name="existence" Type="Int32" />
+          <Property Name="reservet" Type="Int32" />
+          <Property Name="Cost" Type="Int32" />
+          <NavigationProperty Name="Disc" Relationship="PositionsModel.FK_NoteBook_ToDiscs" FromRole="NoteBook" ToRole="Disc" />
+          <NavigationProperty Name="Disc1" Relationship="PositionsModel.FK_NoteBook_ToDiscs2" FromRole="NoteBook" ToRole="Disc" />
+          <NavigationProperty Name="MotherBord" Relationship="PositionsModel.FK_NoteBook_ToMotherBord" FromRole="NoteBook" ToRole="MotherBord" />
+          <NavigationProperty Name="Processor" Relationship="PositionsModel.FK_NoteBook_ToProcessor" FromRole="NoteBook" ToRole="Processor" />
+          <NavigationProperty Name="RAM" Relationship="PositionsModel.FK_NoteBook_ToRAM" FromRole="NoteBook" ToRole="RAM" />
+          <NavigationProperty Name="VideoBord" Relationship="PositionsModel.FK_NoteBook_ToVideoBords" FromRole="NoteBook" ToRole="VideoBord" />
+        </EntityType>
+        <EntityType Name="PC">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Marking" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="processor_ID" Type="Int32" />
+          <Property Name="motherBord_ID" Type="Int32" />
+          <Property Name="RAM_ID" Type="Int32" />
+          <Property Name="videoCard_ID" Type="Int32" />
+          <Property Name="disc1_ID" Type="Int32" />
+          <Property Name="disc2_ID" Type="Int32" />
+          <Property Name="disc3_ID" Type="Int32" />
+          <Property Name="disc4_ID" Type="Int32" />
+          <Property Name="hull_ID" Type="Int32" />
+          <Property Name="power_Supply_ID" Type="Int32" />
+          <Property Name="existence" Type="Int32" />
+          <Property Name="reservet" Type="Int32" />
+          <Property Name="cost" Type="Int32" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Disc" Relationship="PositionsModel.FK_PC_ToDiscs" FromRole="PC" ToRole="Disc" />
+          <NavigationProperty Name="Disc1" Relationship="PositionsModel.FK_PC_ToDiscs2" FromRole="PC" ToRole="Disc" />
+          <NavigationProperty Name="Disc2" Relationship="PositionsModel.FK_PC_ToDiscs3" FromRole="PC" ToRole="Disc" />
+          <NavigationProperty Name="Disc3" Relationship="PositionsModel.FK_PC_ToDiscs4" FromRole="PC" ToRole="Disc" />
+          <NavigationProperty Name="MotherBord" Relationship="PositionsModel.FK_PC_ToMotherBord" FromRole="PC" ToRole="MotherBord" />
+          <NavigationProperty Name="PowerSourse" Relationship="PositionsModel.FK_PC_PowerSourse" FromRole="PC" ToRole="PowerSourse" />
+          <NavigationProperty Name="Processor" Relationship="PositionsModel.FK_PC_ToProcessor" FromRole="PC" ToRole="Processor" />
+          <NavigationProperty Name="RAM" Relationship="PositionsModel.FK_PC_ToRAMs" FromRole="PC" ToRole="RAM" />
+          <NavigationProperty Name="VideoBord" Relationship="PositionsModel.FK_PC_ToVideoBords" FromRole="PC" ToRole="VideoBord" />
+        </EntityType>
+        <EntityType Name="PowerSourse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="voltage" Type="Int32" />
+          <Property Name="manifacture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PC" Relationship="PositionsModel.FK_PC_PowerSourse" FromRole="PowerSourse" ToRole="PC" />
+        </EntityType>
+        <EntityType Name="Processor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="manufacturer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="model" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="frequency" Type="Int32" />
+          <Property Name="cache" Type="Int32" />
+          <Property Name="number_of_Cores" Type="Int32" />
+          <Property Name="number_of_threads" Type="Int32" />
+          <Property Name="cost" Type="Int32" />
+          <NavigationProperty Name="NoteBook" Relationship="PositionsModel.FK_NoteBook_ToProcessor" FromRole="Processor" ToRole="NoteBook" />
+          <NavigationProperty Name="PC" Relationship="PositionsModel.FK_PC_ToProcessor" FromRole="Processor" ToRole="PC" />
+          <NavigationProperty Name="Soket" Relationship="PositionsModel.SoketProcessor" FromRole="Processor" ToRole="Soket" />
+          <Property Name="SoketId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RAM">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="manufacture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="value" Type="Int32" />
+          <Property Name="frequency" Type="Int32" />
+          <Property Name="cost" Type="Int32" />
+          <NavigationProperty Name="NoteBook" Relationship="PositionsModel.FK_NoteBook_ToRAM" FromRole="RAM" ToRole="NoteBook" />
+          <NavigationProperty Name="PC" Relationship="PositionsModel.FK_PC_ToRAMs" FromRole="RAM" ToRole="PC" />
+          <Property Name="DDR_generationID" Type="Int32" />
+          <NavigationProperty Name="MemoryGeneration" Relationship="PositionsModel.FK_DDRGeneration" FromRole="RAM" ToRole="MemoryGeneration" />
+        </EntityType>
+        <EntityType Name="VideoBord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="model" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="memory_generation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="bits" Type="Int32" />
+          <Property Name="memory_" Type="Int32" />
+          <Property Name="C3D_API" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="cost" Type="Int32" />
+          <NavigationProperty Name="NoteBook" Relationship="PositionsModel.FK_NoteBook_ToVideoBords" FromRole="VideoBord" ToRole="NoteBook" />
+          <NavigationProperty Name="PC" Relationship="PositionsModel.FK_PC_ToVideoBords" FromRole="VideoBord" ToRole="PC" />
+        </EntityType>
+        <Association Name="FK_NoteBook_ToDiscs">
+          <End Type="PositionsModel.Disc" Role="Disc" Multiplicity="0..1" />
+          <End Type="PositionsModel.NoteBook" Role="NoteBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Disc">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NoteBook">
+              <PropertyRef Name="disc1_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NoteBook_ToDiscs2">
+          <End Type="PositionsModel.Disc" Role="Disc" Multiplicity="0..1" />
+          <End Type="PositionsModel.NoteBook" Role="NoteBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Disc">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NoteBook">
+              <PropertyRef Name="disc2_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PC_ToDiscs">
+          <End Type="PositionsModel.Disc" Role="Disc" Multiplicity="0..1" />
+          <End Type="PositionsModel.PC" Role="PC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Disc">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PC">
+              <PropertyRef Name="disc1_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PC_ToDiscs2">
+          <End Type="PositionsModel.Disc" Role="Disc" Multiplicity="0..1" />
+          <End Type="PositionsModel.PC" Role="PC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Disc">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PC">
+              <PropertyRef Name="disc2_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PC_ToDiscs3">
+          <End Type="PositionsModel.Disc" Role="Disc" Multiplicity="0..1" />
+          <End Type="PositionsModel.PC" Role="PC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Disc">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PC">
+              <PropertyRef Name="disc3_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PC_ToDiscs4">
+          <End Type="PositionsModel.Disc" Role="Disc" Multiplicity="0..1" />
+          <End Type="PositionsModel.PC" Role="PC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Disc">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PC">
+              <PropertyRef Name="disc4_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NoteBook_ToMotherBord">
+          <End Type="PositionsModel.MotherBord" Role="MotherBord" Multiplicity="0..1" />
+          <End Type="PositionsModel.NoteBook" Role="NoteBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MotherBord">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NoteBook">
+              <PropertyRef Name="motherBord_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PC_ToMotherBord">
+          <End Type="PositionsModel.MotherBord" Role="MotherBord" Multiplicity="0..1" />
+          <End Type="PositionsModel.PC" Role="PC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MotherBord">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PC">
+              <PropertyRef Name="motherBord_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NoteBook_ToProcessor">
+          <End Type="PositionsModel.Processor" Role="Processor" Multiplicity="0..1" />
+          <End Type="PositionsModel.NoteBook" Role="NoteBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Processor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NoteBook">
+              <PropertyRef Name="processor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NoteBook_ToRAM">
+          <End Type="PositionsModel.RAM" Role="RAM" Multiplicity="0..1" />
+          <End Type="PositionsModel.NoteBook" Role="NoteBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAM">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NoteBook">
+              <PropertyRef Name="RAM_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NoteBook_ToVideoBords">
+          <End Type="PositionsModel.VideoBord" Role="VideoBord" Multiplicity="0..1" />
+          <End Type="PositionsModel.NoteBook" Role="NoteBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VideoBord">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="NoteBook">
+              <PropertyRef Name="videoCard_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PC_PowerSourse">
+          <End Type="PositionsModel.PowerSourse" Role="PowerSourse" Multiplicity="0..1" />
+          <End Type="PositionsModel.PC" Role="PC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PowerSourse">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PC">
+              <PropertyRef Name="power_Supply_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PC_ToProcessor">
+          <End Type="PositionsModel.Processor" Role="Processor" Multiplicity="0..1" />
+          <End Type="PositionsModel.PC" Role="PC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Processor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PC">
+              <PropertyRef Name="processor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PC_ToRAMs">
+          <End Type="PositionsModel.RAM" Role="RAM" Multiplicity="0..1" />
+          <End Type="PositionsModel.PC" Role="PC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAM">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PC">
+              <PropertyRef Name="RAM_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PC_ToVideoBords">
+          <End Type="PositionsModel.VideoBord" Role="VideoBord" Multiplicity="0..1" />
+          <End Type="PositionsModel.PC" Role="PC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VideoBord">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PC">
+              <PropertyRef Name="videoCard_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Soket">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Processor" Relationship="PositionsModel.SoketProcessor" FromRole="Soket" ToRole="Processor" />
+          <NavigationProperty Name="MotherBord" Relationship="PositionsModel.SoketMotherBord" FromRole="Soket" ToRole="MotherBord" />
+        </EntityType>
+        <Association Name="SoketProcessor">
+          <End Type="PositionsModel.Soket" Role="Soket" Multiplicity="1" />
+          <End Type="PositionsModel.Processor" Role="Processor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Soket">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Processor">
+              <PropertyRef Name="SoketId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SoketMotherBord">
+          <End Type="PositionsModel.Soket" Role="Soket" Multiplicity="1" />
+          <End Type="PositionsModel.MotherBord" Role="MotherBord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Soket">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MotherBord">
+              <PropertyRef Name="SoketId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MarkerTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Allowable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MotherBord" Relationship="PositionsModel.FK_MarkerMotherBord" FromRole="MarkerTable" ToRole="MotherBord" />
+        </EntityType>
+        <EntityType Name="MemoryGeneration">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Generation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="RAM" Relationship="PositionsModel.FK_DDRGeneration" FromRole="MemoryGeneration" ToRole="RAM" />
+          <NavigationProperty Name="MotherBord" Relationship="PositionsModel.FK_ddrGenerationMotherBord" FromRole="MemoryGeneration" ToRole="MotherBord" />
+        </EntityType>
+        <Association Name="FK_MarkerMotherBord">
+          <End Type="PositionsModel.MarkerTable" Role="MarkerTable" Multiplicity="0..1" />
+          <End Type="PositionsModel.MotherBord" Role="MotherBord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MarkerTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MotherBord">
+              <PropertyRef Name="RAM_MarkingAllowable" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DDRGeneration">
+          <End Type="PositionsModel.MemoryGeneration" Role="MemoryGeneration" Multiplicity="0..1" />
+          <End Type="PositionsModel.RAM" Role="RAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemoryGeneration">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RAM">
+              <PropertyRef Name="DDR_generationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ddrGenerationMotherBord">
+          <End Type="PositionsModel.MemoryGeneration" Role="MemoryGeneration" Multiplicity="0..1" />
+          <End Type="PositionsModel.MotherBord" Role="MotherBord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemoryGeneration">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MotherBord">
+              <PropertyRef Name="Allowable_generationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PositionsModelStoreContainer" CdmEntityContainer="PositionsEntities">
+    <EntitySetMapping Name="Disc">
+      <EntityTypeMapping TypeName="IsTypeOf(PositionsModel.Disc)">
+        <MappingFragment StoreEntitySet="Disc">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
+          <ScalarProperty Name="SSD" ColumnName="SSD" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hulls">
+      <EntityTypeMapping TypeName="IsTypeOf(PositionsModel.Hulls)">
+        <MappingFragment StoreEntitySet="Hulls">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Manafacture" ColumnName="Manafacture" />
+          <ScalarProperty Name="hullType" ColumnName="hullType" />
+          <ScalarProperty Name="hullModel" ColumnName="hullModel" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MotherBord">
+      <EntityTypeMapping TypeName="IsTypeOf(PositionsModel.MotherBord)">
+        <MappingFragment StoreEntitySet="MotherBord">
+          <ScalarProperty Name="RAM_MarkingAllowable" ColumnName="RAM_MarkingAllowable" />
+                <ScalarProperty Name="Allowable_generationID" ColumnName="Allowable_generationID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="northBridge" ColumnName="northBridge" />
+          <ScalarProperty Name="chipSet" ColumnName="chipSet" />
+          <ScalarProperty Name="SoketId" ColumnName="SoketId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NoteBook">
+      <EntityTypeMapping TypeName="IsTypeOf(PositionsModel.NoteBook)">
+        <MappingFragment StoreEntitySet="NoteBook">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="processor_ID" ColumnName="processor_ID" />
+          <ScalarProperty Name="motherBord_ID" ColumnName="motherBord_ID" />
+          <ScalarProperty Name="RAM_ID" ColumnName="RAM_ID" />
+          <ScalarProperty Name="videoCard_ID" ColumnName="videoCard_ID" />
+          <ScalarProperty Name="disc1_ID" ColumnName="disc1_ID" />
+          <ScalarProperty Name="disc2_ID" ColumnName="disc2_ID" />
+          <ScalarProperty Name="Batarray" ColumnName="Batarray" />
+          <ScalarProperty Name="existence" ColumnName="existence" />
+          <ScalarProperty Name="reservet" ColumnName="reservet" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PC">
+      <EntityTypeMapping TypeName="IsTypeOf(PositionsModel.PC)">
+        <MappingFragment StoreEntitySet="PC">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Marking" ColumnName="Marking" />
+          <ScalarProperty Name="processor_ID" ColumnName="processor_ID" />
+          <ScalarProperty Name="motherBord_ID" ColumnName="motherBord_ID" />
+          <ScalarProperty Name="RAM_ID" ColumnName="RAM_ID" />
+          <ScalarProperty Name="videoCard_ID" ColumnName="videoCard_ID" />
+          <ScalarProperty Name="disc1_ID" ColumnName="disc1_ID" />
+          <ScalarProperty Name="disc2_ID" ColumnName="disc2_ID" />
+          <ScalarProperty Name="disc3_ID" ColumnName="disc3_ID" />
+          <ScalarProperty Name="disc4_ID" ColumnName="disc4_ID" />
+          <ScalarProperty Name="hull_ID" ColumnName="hull_ID" />
+          <ScalarProperty Name="power_Supply_ID" ColumnName="power_Supply_ID" />
+          <ScalarProperty Name="existence" ColumnName="existence" />
+          <ScalarProperty Name="reservet" ColumnName="reservet" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PowerSourse">
+      <EntityTypeMapping TypeName="IsTypeOf(PositionsModel.PowerSourse)">
+        <MappingFragment StoreEntitySet="PowerSourse">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="voltage" ColumnName="voltage" />
+          <ScalarProperty Name="manifacture" ColumnName="manifacture" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Processor">
+      <EntityTypeMapping TypeName="IsTypeOf(PositionsModel.Processor)">
+        <MappingFragment StoreEntitySet="Processor">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="frequency" ColumnName="frequency" />
+          <ScalarProperty Name="cache" ColumnName="cache" />
+          <ScalarProperty Name="number_of_Cores" ColumnName="number_of_Cores" />
+          <ScalarProperty Name="number_of_threads" ColumnName="number_of_threads" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="SoketId" ColumnName="SoketId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RAM">
+      <EntityTypeMapping TypeName="IsTypeOf(PositionsModel.RAM)">
+        <MappingFragment StoreEntitySet="RAM">
+          <ScalarProperty Name="DDR_generationID" ColumnName="DDR_generationID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="manufacture" ColumnName="manufacture" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="frequency" ColumnName="frequency" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VideoBord">
+      <EntityTypeMapping TypeName="IsTypeOf(PositionsModel.VideoBord)">
+        <MappingFragment StoreEntitySet="VideoBord">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="memory_generation" ColumnName="memory_generation" />
+          <ScalarProperty Name="bits" ColumnName="bits" />
+          <ScalarProperty Name="memory_" ColumnName="memory_" />
+          <ScalarProperty Name="C3D_API" ColumnName="C3D_API" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SoketSet">
+      <EntityTypeMapping TypeName="IsTypeOf(PositionsModel.Soket)">
+        <MappingFragment StoreEntitySet="SoketSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+          <EntitySetMapping Name="MarkerTable">
+            <EntityTypeMapping TypeName="PositionsModel.MarkerTable">
+              <MappingFragment StoreEntitySet="MarkerTable">
+                <ScalarProperty Name="Allowable" ColumnName="Allowable" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MemoryGeneration">
+            <EntityTypeMapping TypeName="PositionsModel.MemoryGeneration">
+              <MappingFragment StoreEntitySet="MemoryGeneration">
+                <ScalarProperty Name="Generation" ColumnName="Generation" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

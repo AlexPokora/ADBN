@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="60501ed40efa425e8f930b1277a52925" Name="Diagram1" ZoomLevel="83">
+        <EntityTypeShape EntityType="PositionsModel.Disc" Width="1.5" PointX="0.75" PointY="5.375" />
+        <EntityTypeShape EntityType="PositionsModel.Hulls" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PositionsModel.MotherBord" Width="1.5" PointX="12.125" PointY="5.125" />
+        <EntityTypeShape EntityType="PositionsModel.NoteBook" Width="1.5" PointX="3" PointY="4.625" />
+        <EntityTypeShape EntityType="PositionsModel.PC" Width="1.5" PointX="6" PointY="4" />
+        <EntityTypeShape EntityType="PositionsModel.PowerSourse" Width="1.5" PointX="8.25" PointY="2.25" />
+        <EntityTypeShape EntityType="PositionsModel.Processor" Width="1.5" PointX="8.125" PointY="11" />
+        <EntityTypeShape EntityType="PositionsModel.RAM" Width="1.5" PointX="16.25" PointY="7.75" />
+        <EntityTypeShape EntityType="PositionsModel.VideoBord" Width="1.5" PointX="10.375" PointY="1" />
+        <AssociationConnector Association="PositionsModel.FK_NoteBook_ToDiscs" />
+        <AssociationConnector Association="PositionsModel.FK_NoteBook_ToDiscs2" />
+        <AssociationConnector Association="PositionsModel.FK_PC_ToDiscs" />
+        <AssociationConnector Association="PositionsModel.FK_PC_ToDiscs2" />
+        <AssociationConnector Association="PositionsModel.FK_PC_ToDiscs3" />
+        <AssociationConnector Association="PositionsModel.FK_PC_ToDiscs4" />
+        <AssociationConnector Association="PositionsModel.FK_NoteBook_ToMotherBord" />
+        <AssociationConnector Association="PositionsModel.FK_PC_ToMotherBord" />
+        <AssociationConnector Association="PositionsModel.FK_NoteBook_ToProcessor" />
+        <AssociationConnector Association="PositionsModel.FK_NoteBook_ToRAM" />
+        <AssociationConnector Association="PositionsModel.FK_NoteBook_ToVideoBords" />
+        <AssociationConnector Association="PositionsModel.FK_PC_PowerSourse" />
+        <AssociationConnector Association="PositionsModel.FK_PC_ToProcessor" />
+        <AssociationConnector Association="PositionsModel.FK_PC_ToRAMs" />
+        <AssociationConnector Association="PositionsModel.FK_PC_ToVideoBords" />
+        <EntityTypeShape EntityType="PositionsModel.Soket" Width="1.5" PointX="5.875" PointY="10.75" />
+        <AssociationConnector Association="PositionsModel.SoketProcessor" />
+        <AssociationConnector Association="PositionsModel.SoketMotherBord" />
+        <EntityTypeShape EntityType="PositionsModel.MemoryGeneration" Width="1.5" PointX="9.875" PointY="6.875" />
+        <EntityTypeShape EntityType="PositionsModel.MarkerTable" Width="1.5" PointX="3.375" PointY="0.875" />
+        <AssociationConnector Association="PositionsModel.FK_MarkerMotherBord" />
+        <AssociationConnector Association="PositionsModel.FK_DDRGeneration" />
+        <AssociationConnector Association="PositionsModel.FK_ddrGenerationMotherBord" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

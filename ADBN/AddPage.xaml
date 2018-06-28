@@ -1,0 +1,183 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ADBN"
+      xmlns:Model="clr-namespace:ADBN.Model" x:Class="ADBN.AddPage"
+      mc:Ignorable="d"
+      Title="AddPage" Width="auto" Height="auto" d:DesignWidth="656" d:DesignHeight="314.325">
+
+    <Page.DataContext>
+        <Model:AddWindowModel/>
+    </Page.DataContext>
+
+    <Grid >
+        <TabControl x:Name="tabControl" >
+            <TabItem Header="Disc">
+                <Grid Background="#bfd391" >
+                    <Button x:Name="button" Content="upload" Margin="10,0,0,10" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="75" Command="{Binding ld}" />
+                    <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="85,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding SelectedDisc.value, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Value" VerticalAlignment="Top" Height="23" Width="54"/>
+                    <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" Height="23" Margin="85,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding SelectedDisc.SSD, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="10,33,0,0" TextWrapping="Wrap" Text="SSD" VerticalAlignment="Top" Height="23" Width="54"/>
+                    <TextBox x:Name="textBox_Copy1" HorizontalAlignment="Left" Height="23" Margin="85,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding SelectedDisc.cost, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="10,56,0,0" TextWrapping="Wrap" Text="Cost" VerticalAlignment="Top" Height="23" Width="54"/>
+                    <DataGrid x:Name="DiscDataGrid" Margin="210,10,10,10" SelectedValue="{Binding SelectedDisc, UpdateSourceTrigger=PropertyChanged}"  ItemsSource="{Binding disc_Collection, UpdateSourceTrigger=PropertyChanged}"  AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Value" Binding="{Binding value}" Width="auto"/>
+                            <DataGridTextColumn Header="Manufactory" Binding="{Binding manufacturer}" Width="auto"/>
+                            <DataGridTextColumn Header="SSD" Binding="{Binding SSD}" Width="auto"/>
+                            <DataGridTextColumn Header="Cost" Binding="{Binding cost}" Width="auto"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="button_Copy6" Content="Edit" Margin="90,0,0,10" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="75" Click="button_Copy6_Click"/>
+                    <Button x:Name="button_Copy13" Content="delete" Margin="10,0,0,35" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="75" Command="{Binding ld}"/>
+                    <CheckBox x:Name="checkBox" Command="{Binding ld}" Content="CheckBox" HorizontalAlignment="Left" Margin="121,193,0,0" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Mother Board">
+                <Grid Background="#bfd391">
+                    <TextBox x:Name="textBox_Copy2" HorizontalAlignment="Left" Height="23" Margin="85,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock x:Name="textBlock_Copy2" HorizontalAlignment="Left" Margin="10,6,0,0" TextWrapping="Wrap" Text="manufacture" VerticalAlignment="Top" Height="23" Width="70"/>
+                    <TextBox x:Name="textBox_Copy3" HorizontalAlignment="Left" Height="23" Margin="85,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock x:Name="textBlock_Copy3" HorizontalAlignment="Left" Margin="10,29,0,0" TextWrapping="Wrap" Text="Soket" VerticalAlignment="Top" Height="23" Width="54"/>
+                    <TextBox x:Name="textBox_Copy4" HorizontalAlignment="Left" Height="23" Margin="85,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock x:Name="textBlock_Copy4" HorizontalAlignment="Left" Margin="10,52,0,0" TextWrapping="Wrap" Text="Cost" VerticalAlignment="Top" Height="23" Width="54"/>
+                    <Button x:Name="button_Copy" Content="upload" VerticalAlignment="Bottom" Margin="10,0,0,10" Click="button_Copy_Click" HorizontalAlignment="Left" Width="75" />
+                    <DataGrid x:Name="MotherBoardDataGrid" Margin="210,10,10,10" ItemsSource="{Binding motherBoard_Collection}" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Name" Binding="{Binding voltage}" Width="auto"/>
+                            <DataGridTextColumn Header="NorthBridge" Binding="{Binding northBridge}" Width="auto"/>
+                            <DataGridTextColumn Header="Chipset" Binding="{Binding chipSet}" Width="auto"/>
+                            <DataGridTextColumn Header="Soket" Binding="{Binding SoketId}" Width="auto"/>
+                            <DataGridTextColumn Header="AllowableGeneration ID" Binding="{Binding Allowable_generationID}" Width="auto"/>
+                            <DataGridTextColumn Header="Ram Marking Aloweble" Binding="{Binding RAM_MarkingAlowwable}" Width="auto" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="button_Copy7" Content="Edit" Margin="90,0,0,10" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="75" Click="EditMotherBoardButton"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Power Source">
+                <Grid Background="#bfd391" >
+                    <TextBox x:Name="textBox_Copy5" Text="{Binding SelectedPowerSourse.manifacture}" HorizontalAlignment="Left" Height="23" Margin="85,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock x:Name="textBlock_Copy5" HorizontalAlignment="Left" Margin="10,6,0,0" TextWrapping="Wrap" Text="manufacture" VerticalAlignment="Top" Height="23" Width="70"/>
+                    <TextBox x:Name="textBox_Copy6" Text="{Binding SelectedPowerSourse.voltage}" HorizontalAlignment="Left" Height="23" Margin="85,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock x:Name="textBlock_Copy6" HorizontalAlignment="Left" Margin="10,29,0,0" TextWrapping="Wrap" Text="power" VerticalAlignment="Top" Height="23" Width="54"/>
+                    <TextBox x:Name="textBox_Copy7" HorizontalAlignment="Left" Height="23" Margin="85,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock x:Name="textBlock_Copy7" HorizontalAlignment="Left" Margin="10,52,0,0" TextWrapping="Wrap" Text="Cost" VerticalAlignment="Top" Height="23" Width="54"/>
+                    <Button x:Name="button_Copy1" Content="upload" HorizontalAlignment="Left" Margin="10,0,0,10" Width="75" Click="button_Copy1_Click" Height="20" VerticalAlignment="Bottom"/>
+                    <DataGrid x:Name="PowerSourseDataGrid" Margin="210,10,10,10" ItemsSource="{Binding powerSource_Collection, UpdateSourceTrigger=PropertyChanged}" SelectedValue="{Binding SelectedPowerSourse, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <!--><DataGridTextColumn Header="ID" Binding="{Binding }" Width="auto"/><-->
+                            <DataGridTextColumn Header="Voltage" Binding="{Binding voltage}" Width="auto"/>
+                            <DataGridTextColumn Header="Manifacture" Binding="{Binding manifacture}" Width="auto"/>
+                            <DataGridTextColumn Header="Cost" Binding="{Binding cost}" Width="auto"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="button_Copy8" Content="Edit" Margin="90,0,0,10" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="75" Click="button_Copy8_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Processor">
+                <Grid Background="#bfd391" >
+                    <TextBox x:Name="textBox_Manufacture" Text="{Binding SelectedProcesor.manufacturer, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="85,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock x:Name="textBlock_Manufacture" HorizontalAlignment="Left" Margin="10,6,0,0" TextWrapping="Wrap" Text="manufacture" VerticalAlignment="Top" Height="23" Width="70"/>
+                    <TextBox x:Name="textBox_Copy9" Text="{Binding SelectedProcesor.SoketId, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="85,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock x:Name="textBlock_Copy9" HorizontalAlignment="Left" Margin="10,29,0,0" TextWrapping="Wrap" Text="Soket" VerticalAlignment="Top" Height="23" Width="54"/>
+                    <TextBox x:Name="textBox_Copy10" Text="{Binding SelectedProcesor.cost, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="85,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock x:Name="textBlock_Copy10" HorizontalAlignment="Left" Margin="10,52,0,0" TextWrapping="Wrap" Text="Cost" VerticalAlignment="Top" Height="23" Width="54"/>
+                    <Button x:Name="button_Copy2" Content="upload" HorizontalAlignment="Left" Margin="10,0,0,10" Width="75" Click="button_Copy2_Click" Height="20" VerticalAlignment="Bottom"/>
+                    <TextBox x:Name="textBox_Copy11" Text="{Binding SelectedProcesor.frequency, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="85,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock x:Name="textBlock_Copy11" HorizontalAlignment="Left" Margin="10,75,0,0" TextWrapping="Wrap" Text="Frequency" VerticalAlignment="Top" Height="23" Width="70"/>
+                    <TextBox x:Name="textBox_Copy12" Text="{Binding SelectedProcesor.number_of_Cores, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="85,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock x:Name="textBlock_Copy12" HorizontalAlignment="Left" Margin="10,98,0,0" TextWrapping="Wrap" Text="Core" VerticalAlignment="Top" Height="23" Width="54"/>
+                    <TextBox x:Name="textBox_Copy13" Text="{Binding SelectedProcesor.number_of_threads, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="85,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock x:Name="textBlock_Copy13" HorizontalAlignment="Left" Margin="10,121,0,0" TextWrapping="Wrap" Text="threds" VerticalAlignment="Top" Height="23" Width="54"/>
+                    <TextBox x:Name="textBox_Copy14" Text="{Binding SelectedProcesor.model, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="85,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock x:Name="textBlock_Copy14" HorizontalAlignment="Left" Margin="10,145,0,0" TextWrapping="Wrap" Text="name" VerticalAlignment="Top" Height="23" Width="70"/>
+                    <DataGrid x:Name="ProcessorDataGrid" Margin="210,10,10,10" ItemsSource="{Binding processor_Collection, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" SelectedValue="{Binding SelectedProcesor, UpdateSourceTrigger=PropertyChanged}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Mafacture" Binding="{Binding manufacturer}" Width="auto"/>
+                            <DataGridTextColumn Header="Model" Binding="{Binding model}" Width="auto"/>
+                            <DataGridTextColumn Header="frequency" Binding="{Binding frequency}" Width="auto"/>
+                            <DataGridTextColumn Header="cache" Binding="{Binding cache}" Width="auto"/>
+                            <DataGridTextColumn Header="number_of_Cores" Binding="{Binding number_of_Cores}" Width="auto"/>
+                            <DataGridTextColumn Header="number_of_threads" Binding="{Binding number_of_threads}" Width="auto"/>
+                            <DataGridTextColumn Header="cost" Binding="{Binding cost}" Width="auto"/>
+                            <DataGridTextColumn Header="SoketId" Binding="{Binding SoketId}" Width="auto"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="button_Copy9" Content="Edit" Margin="90,0,0,10" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="75" Click="button_Copy9_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Ram">
+                <Grid Background="#bfd391" >
+                    <TextBox x:Name="ramGenerationTextBox" HorizontalAlignment="Left" Height="23" Margin="85,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text=""/>
+                    <TextBlock x:Name="textBlock_Copy15" HorizontalAlignment="Left" Margin="10,6,0,0" TextWrapping="Wrap" Text="generation" VerticalAlignment="Top" Height="23" Width="70"/>
+                    <TextBox x:Name="textBox_Copy16" HorizontalAlignment="Left" Height="23" Margin="85,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock x:Name="textBlock_Copy16" HorizontalAlignment="Left" Margin="10,29,0,0" TextWrapping="Wrap" Text="value" VerticalAlignment="Top" Height="23" Width="54"/>
+                    <TextBox x:Name="textBox_Copy17" HorizontalAlignment="Left" Height="23" Margin="85,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock x:Name="textBlock_Copy17" HorizontalAlignment="Left" Margin="10,52,0,0" TextWrapping="Wrap" Text="Cost" VerticalAlignment="Top" Height="23" Width="54"/>
+                    <Button x:Name="button_Copy3" Content="upload" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="75" Click="button_Copy3_Click"/>
+                    <TextBox x:Name="textBox_Copy18" HorizontalAlignment="Left" Height="23" Margin="85,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock x:Name="textBlock_Copy18" HorizontalAlignment="Left" Margin="10,75,0,0" TextWrapping="Wrap" Text="Frequency" VerticalAlignment="Top" Height="23" Width="70"/>
+                    <DataGrid x:Name="RAMDataGrid" Margin="210,10,10,10" ItemsSource="{Binding ram_Collection}" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Mafacture" Binding="{Binding manufacture}" Width="auto"/>
+                            <DataGridTextColumn Header="Value" Binding="{Binding value}" Width="auto"/>
+                            <DataGridTextColumn Header="Frequency" Binding="{Binding frequency}" Width="auto"/>
+                            <DataGridTextColumn Header="Cost" Binding="{Binding cost}" Width="auto"/>
+                            <DataGridTextColumn Header="DDR Generation" Binding="{Binding DDR_generationID}" Width="auto"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="button_Copy10" Content="Edit" Margin="90,0,0,10" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="75" Click="button_Copy10_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Soket">
+                <Grid Background="#bfd391" >
+                    <TextBox x:Name="textBox_Copy19" HorizontalAlignment="Left" Height="23" Margin="85,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock x:Name="textBlock_Copy19" HorizontalAlignment="Left" Margin="10,6,0,0" TextWrapping="Wrap" Text="name" VerticalAlignment="Top" Height="23" Width="70"/>
+                    <Button x:Name="button_Copy4" Content="upload" HorizontalAlignment="Left" Margin="10,0,0,10" Width="75" Height="20" VerticalAlignment="Bottom"/>
+                    <DataGrid x:Name="SoketDataGrid" Margin="210,10,10,10" ItemsSource="{Binding soket_Collection}"/>
+                    <Button x:Name="button_Copy11" Content="Edit" Margin="90,0,0,10" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="75" Click="button_Copy6_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Video Card">
+                <Grid Background="#bfd391" >
+                    <TextBox x:Name="textBox_Copy20" HorizontalAlignment="Left" Height="23" Margin="85,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock x:Name="textBlock_Copy20" HorizontalAlignment="Left" Margin="10,6,0,0" TextWrapping="Wrap" Text="manufacture" VerticalAlignment="Top" Height="23" Width="70"/>
+                    <TextBox x:Name="textBox_Copy21" HorizontalAlignment="Left" Height="23" Margin="85,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock x:Name="textBlock_Copy21" HorizontalAlignment="Left" Margin="10,29,0,0" TextWrapping="Wrap" Text="name" VerticalAlignment="Top" Height="23" Width="54"/>
+                    <TextBox x:Name="textBox_Copy22" HorizontalAlignment="Left" Height="23" Margin="85,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock x:Name="textBlock_Copy22" HorizontalAlignment="Left" Margin="10,52,0,0" TextWrapping="Wrap" Text="Cost" VerticalAlignment="Top" Height="23" Width="54"/>
+                    <Button x:Name="button_Copy5" Content="upload" HorizontalAlignment="Left" Margin="10,0,0,10" Width="75" Click="button_Copy5_Click" Height="20" VerticalAlignment="Bottom"/>
+                    <TextBox x:Name="textBox_Copy23" HorizontalAlignment="Left" Height="23" Margin="85,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock x:Name="textBlock_Copy23" HorizontalAlignment="Left" Margin="10,75,0,0" TextWrapping="Wrap" Text="value" VerticalAlignment="Top" Height="23" Width="70"/>
+                    <TextBox x:Name="textBox_Copy24" HorizontalAlignment="Left" Height="23" Margin="85,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock x:Name="textBlock_Copy24" HorizontalAlignment="Left" Margin="10,98,0,0" TextWrapping="Wrap" Text="bit" VerticalAlignment="Top" Height="23" Width="54"/>
+                    <DataGrid x:Name="VideoCardDataGrid" Margin="210,10,10,10" ItemsSource="{Binding videoBord_Collection}"/>
+                    <Button x:Name="button_Copy12" Content="Edit" Margin="90,0,0,10" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="75" Click="button_Copy12_Click"/>
+                </Grid>
+            </TabItem>
+            <!--<TabItem Header="TestPC">
+                <Grid Background="#bfd391" >
+                    <TextBox x:Name="textBox_Copy25" HorizontalAlignment="Left" Height="23" Margin="85,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock x:Name="textBlock_Copy25" HorizontalAlignment="Left" Margin="10,6,0,0" TextWrapping="Wrap" Text="manufacture" VerticalAlignment="Top" Height="23" Width="70"/>
+                    <TextBox x:Name="textBox_Copy26" HorizontalAlignment="Left" Height="23" Margin="85,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock x:Name="textBlock_Copy26" HorizontalAlignment="Left" Margin="10,29,0,0" TextWrapping="Wrap" Text="name" VerticalAlignment="Top" Height="23" Width="54"/>
+                    <TextBox x:Name="textBox_Copy27" HorizontalAlignment="Left" Height="23" Margin="85,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock x:Name="textBlock_Copy27" HorizontalAlignment="Left" Margin="10,52,0,0" TextWrapping="Wrap" Text="Cost" VerticalAlignment="Top" Height="23" Width="54"/>
+                    <Button x:Name="button_Copy14" Content="upload" HorizontalAlignment="Left" Margin="10,0,0,10" Width="75" Click="button_Copy14_Click" Height="20" VerticalAlignment="Bottom"/>
+                    <TextBox x:Name="textBox_Copy28" HorizontalAlignment="Left" Height="23" Margin="85,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock x:Name="textBlock_Copy28" HorizontalAlignment="Left" Margin="10,75,0,0" TextWrapping="Wrap" Text="value" VerticalAlignment="Top" Height="23" Width="70"/>
+                    <TextBox x:Name="textBox_Copy29" HorizontalAlignment="Left" Height="23" Margin="85,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock x:Name="textBlock_Copy29" HorizontalAlignment="Left" Margin="10,98,0,0" TextWrapping="Wrap" Text="bit" VerticalAlignment="Top" Height="23" Width="54"/>
+                    <DataGrid x:Name="TestPC" Margin="210,10,10,10" ItemsSource="{Binding }" AutoGenerateColumns="False"/>
+                    <Button x:Name="button_Copy15" Content="Edit" Margin="90,0,0,10" Click="button_Copy15_Click" HorizontalAlignment="Left" Width="75" Height="20" VerticalAlignment="Bottom"/>
+                </Grid>
+            </TabItem>-->
+        </TabControl>
+
+    </Grid>
+</Page>
